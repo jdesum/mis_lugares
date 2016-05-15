@@ -20,7 +20,7 @@
 
 
        <Button
-           android:id="@+id/button01"
+           android:id="@+id/btnMostrarLugares"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="@string/accion_mostrar"
@@ -28,7 +28,7 @@
            android:layout_gravity="center_horizontal" />
 
        <Button
-           android:id="@+id/button02"
+           android:id="@+id/btnPreferencias"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="@string/accion_preferencias"
@@ -37,7 +37,7 @@
            android:clickable="true" />
 
        <Button
-           android:id="@+id/button03"
+           android:id="@+id/btnAcercaDe"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="@string/accion_acerca_de"
@@ -46,7 +46,7 @@
            android:clickable="true" />
 
        <Button
-           android:id="@+id/button04"
+           android:id="@+id/btnSalir"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="@string/accion_salir"

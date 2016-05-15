@@ -6,16 +6,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View.OnClickListener;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     // Atributos
-    private Button BtnAcercaDe;
+    private Button btnMostrarLugares, btnPreferencias;
+    private Button btnAcercaDe, btnSalir;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,31 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         setContentView(R.layout.activity_main);
 
         // Inflar el boton
-        BtnAcercaDe = (Button) findViewById(R.id.button02);
+        btnMostrarLugares = (Button) findViewById(R.id.btnMostrarLugares);
+        btnPreferencias = (Button) findViewById(R.id.btnPreferencias);
+        btnAcercaDe = (Button) findViewById(R.id.btnAcercaDe);
+        btnSalir = (Button) findViewById(R.id.btnSalir);
 
-        // Lanzar la activiad AcercaDeActivity
-        //lanzarAcercaDe();
-        BtnAcercaDe.setOnClickListener(this);
+
+        // Lanzar la actividades al selecionar boton correspondiente
+        btnAcercaDe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               lanzarAcercaDe();
+
+            }
+        });
+
+        btnPreferencias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lanzarPreferencias();
+            }
+        });
+
+
+
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -68,10 +89,50 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
 
     // Método de la actividad lanzarAcercaDe
-    @Override
-    public void onClick(View v){
+    public void lanzarAcercaDe(){
         Intent i = new Intent(this, AcercaDeActivity.class);
         startActivity(i);
     }
+
+    /*
+     * Añade a MainActivity.java el método lanzarPreferencias().
+     * Este método ha de tener el mismo código que lanzarAcercaDe()
+     * pero lanzando la actividad PreferenciasActivity.
+      * Al pulsar el botón con texto “Preferencias”
+      * hace que se llame a lanzarPreferencias().
+     */
+    public void lanzarPreferencias(){
+        Intent i = new Intent(this, PreferenciasActivity.class);
+        startActivity(i);
+    }
+
+
+
+ /* Metodo con switch
+ @Override
+public void onCreate(Bundle savedInstanceState) {
+        button1.setOnClickListener(onClickListener);
+        button2.setOnClickListener(onClickListener);
+        button3.setOnClickListener(onClickListener);
+}
+
+private OnClickListener onClickListener = new OnClickListener() {
+     @Override
+     public void onClick(View v) {
+         switch(v.getId()){
+             case R.id.button1:
+                  //DO something
+             break;
+             case R.id.button2:
+                  //DO something
+             break;
+             case R.id.button3:
+                  //DO something
+             break;
+         }
+
+   }
+};
+  */
 
 }

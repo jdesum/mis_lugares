@@ -24,6 +24,11 @@
             android:label="Acerca de ..."
             android:theme="@style/Theme.AppCompat.Dialog" />
 
+        <activity
+            android:name=".PreferenciasActivity"
+            android:label="Preferencias" />
+
+
     </application>
 
 </manifest>
