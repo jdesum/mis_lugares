@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         //lanzarAcercaDe();
         BtnAcercaDe.setOnClickListener(this);
 
-        // ldjfldjfkalj al kdlsj asdñljfasñl jasdjñfadsf
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
