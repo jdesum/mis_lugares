@@ -1,7 +1,9 @@
 package com.example.yoso.mislugares;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnPreferencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        // Accediendo a los valores de las preferencias de Mostrar Lugares
+        btnMostrarLugares.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarPreferencias();
+            }
+        });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,6 +72,29 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /* Método acceder a los valores de las preferencias
+       * para alterar e funcionamiento de nuestra aplicación
+      */
+    private void mostrarPreferencias() {
+        /*
+         * La función comienza creando el objeto pref de la clase SharedPreferences
+         * y le asigna las preferencias definidas para la aplicación
+         */
+        SharedPreferences pref =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        /*
+         * Crea el String s y le asigna los valores de dos de las  preferencias.
+         * Se utilizan los métodos pref.getBoolean() y pref.getString(),
+         * que disponen de dos parámetros: el valor de key que queremos buscar
+         * ("notificaciones" y "maximo") y el valor asignado por defecto
+         * en caso de no encontrar esta key.
+         */
+        String s = "notificaciones: " + pref.getBoolean("notificaciones", true)
+                + ", máximo a listar: " +
+                pref.getString("maximo","?");
+        // Se visualiza el resultado utilizando la clase Toast
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
 
 
     @Override
@@ -103,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, PreferenciasActivity.class);
         startActivity(i);
     }
+
+
+
 
 
 
