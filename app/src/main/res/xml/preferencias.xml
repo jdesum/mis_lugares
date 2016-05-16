@@ -22,4 +22,30 @@
         android:entryValues="@array/tiposOrdenValores"
         android:defaultValue="1"
         />
+
+    <PreferenceCategory android:title="NOTIFICACIONES POR CORREO">
+        <CheckBoxPreference
+            android:key="recibirCorreos"
+            android:title="Recibir correos"
+            android:summary="Recibir correos con información sobre lugares"
+            />
+
+        <EditTextPreference
+            android:key="direccion"
+            android:title="Dirección de Correo"
+            android:summary="Cuenta donde se mandarán las notificaciones"
+            android:defaultValue="direccion@gmail.com"
+            />
+
+        <ListPreference
+            android:key="tipoNotificaciones"
+            android:title="Tipos de notificaciones"
+            android:summary="Que tipos de correos quieres recibir"
+            android:entries="@array/tiposNotificaciones"
+            android:entryValues="@array/tiposNotificacionesValores"
+            android:defaultValue="1"
+            />
+
+
+    </PreferenceCategory>
 </PreferenceScreen>
